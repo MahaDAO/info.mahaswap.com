@@ -72,7 +72,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "push": "react-scripts build && echo 'info.mahaswao.com' > build/CNAME && gh-pages --dist build",
+    "push": "react-scripts build && echo 'info.mahaswap.com' > build/CNAME && gh-pages --dist build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
