@@ -1,13 +1,12 @@
 import React from 'react'
 import { ThemeProvider as StyledComponentsThemeProvider, createGlobalStyle } from 'styled-components'
-import { useDarkModeManager } from '../contexts/LocalStorage'
+// import { useDarkModeManager } from '../contexts/LocalStorage'
 import styled from 'styled-components'
 import { Text } from 'rebass'
 
 export default function ThemeProvider({ children }) {
-  const [darkMode] = useDarkModeManager()
-
-  return <StyledComponentsThemeProvider theme={theme(darkMode)}>{children}</StyledComponentsThemeProvider>
+  // const [darkMode] = useDarkModeManager()
+  return <StyledComponentsThemeProvider theme={theme(true)}>{children}</StyledComponentsThemeProvider>
 }
 
 const theme = (darkMode, color) => ({
@@ -17,7 +16,7 @@ const theme = (darkMode, color) => ({
   panelColor: darkMode ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 0)',
   backgroundColor: darkMode ? '#212429' : '#F7F8FA',
 
-  uniswapPink: darkMode ? '#ff007a' : 'black',
+  uniswapPink: darkMode ? '#ff0800' : 'black',
 
   concreteGray: darkMode ? '#292C2F' : '#FAFAFA',
   inputBackground: darkMode ? '#1F1F1F' : '#FAFAFA',
@@ -72,7 +71,7 @@ const theme = (darkMode, color) => ({
   link: '#2172E5',
   blue: '2f80ed',
 
-  background: darkMode ? 'black' : `radial-gradient(50% 50% at 50% 50%, #ff007a30 0%, #fff 0%)`,
+  background: darkMode ? 'black' : `radial-gradient(50% 50% at 50% 50%, #ff000030 0%, #fff 0%)`,
 })
 
 const TextWrapper = styled(Text)`
@@ -145,7 +144,7 @@ export const ThemedBackground = styled.div`
   height: 200vh;
   mix-blend-mode: color;
   background: ${({ backgroundColor }) =>
-    `radial-gradient(50% 50% at 50% 50%, ${backgroundColor} 0%, rgba(255, 255, 255, 0) 100%)`};
+    `radial-gradient(50% 50% at 50% 50%, rgba(255, 0,0, 0.3) 0%, rgba(255, 255, 255, 0) 100%)`};
   position: absolute;
   top: 0px;
   left: 0px;
@@ -160,14 +159,14 @@ export const GlobalStyle = createGlobalStyle`
   @supports (font-variation-settings: normal) {
     html { font-family: 'Inter var', sans-serif; }
   }
-  
+
   html,
   body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    font-size: 14px;    
+    font-size: 14px;
     background-color: ${({ theme }) => theme.bg6};
   }
 
@@ -179,7 +178,7 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-  
+
 .three-line-legend {
 	width: 100%;
 	height: 70px;
@@ -214,7 +213,7 @@ export const GlobalStyle = createGlobalStyle`
 
 .tv-lightweight-charts{
   width: 100% !important;
-  
+
 
   & > * {
     width: 100% !important;

@@ -627,7 +627,7 @@ export function usePairChartData(pairAddress) {
 }
 
 /**
- * Get list of all pairs in Uniswap
+ * Get list of all pairs in Mahaswap
  */
 export function useAllPairData() {
   const [state] = usePairDataContext()
