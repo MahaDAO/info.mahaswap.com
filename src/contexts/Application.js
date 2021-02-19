@@ -274,6 +274,15 @@ export function useListedTokens() {
         const newTokens = await getTokenList(url)
         return Promise.resolve([...tokensSoFar, ...newTokens.tokens])
       }, Promise.resolve([]))
+
+      allFetched.push({
+        address: '0x0e3cc2c4fb9252d17d07c67135e48536071735d9',
+        chainId: 1,
+        decimals: 18,
+        name: 'ARTH',
+        symbol: 'ARTH',
+      })
+
       let formatted = allFetched?.map((t) => t.address.toLowerCase())
       updateSupportedTokens(formatted)
     }
