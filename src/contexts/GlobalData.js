@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useMemo, useCallback, useEffect, useState } from 'react'
-import { client } from '../apollo/client'
+import { client, uniswapClient } from '../apollo/client'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import { useTimeframe } from './Application'
@@ -335,7 +335,7 @@ const getChartData = async (oldestDateToFetch) => {
       }
     }
 
-    if (data) {
+    if (data && data.length > 0) {
       let dayIndexSet = new Set()
       let dayIndexArray = []
       const oneDay = 24 * 60 * 60
@@ -446,11 +446,11 @@ const getEthPrice = async () => {
 
   try {
     let oneDayBlock = await getBlockFromTimestamp(utcOneDayBack)
-    let result = await client.query({
+    let result = await uniswapClient.query({
       query: ETH_PRICE(),
       fetchPolicy: 'cache-first',
     })
-    let resultOneDay = await client.query({
+    let resultOneDay = await uniswapClient.query({
       query: ETH_PRICE(oneDayBlock),
       fetchPolicy: 'cache-first',
     })
