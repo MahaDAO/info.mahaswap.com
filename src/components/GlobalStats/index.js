@@ -52,7 +52,7 @@ export default function GlobalStats() {
             </TYPE.main>
           )}
 
-          {!below1180 && (
+          {/* {!below1180 && (
             <TYPE.main mr={'1rem'}>
               Transactions (24H): <Medium>{localNumber(oneDayTxns)}</Medium>
             </TYPE.main>
@@ -66,7 +66,7 @@ export default function GlobalStats() {
             <TYPE.main mr={'1rem'}>
               Fees (24H): <Medium>{oneDayFees}</Medium>&nbsp;
             </TYPE.main>
-          )}
+          )} */}
         </RowFixed>
       </RowBetween>
     </Header>
